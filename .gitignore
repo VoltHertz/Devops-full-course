@@ -13,6 +13,9 @@ yherdt_credentials.csv
 # Logs
 *.log
 
+# Diretórios de Vagrant
+.vagrant/
+
 # IDEs
 .vscode/
 .idea/
