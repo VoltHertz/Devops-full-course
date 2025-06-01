@@ -1,0 +1,36 @@
+# Ignorar arquivos sensíveis e temporários
+
+# Credenciais
+*.env
+*.pem
+*.key
+*.crt
+*.secret
+*.token
+*.config
+yherdt_credentials.csv
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# Build/output
+dist/
+build/
+tmp/
+out/
+
+# Node (caso use)
+node_modules/
+
+# Python (caso use)
+__pycache__/
+*.pyc
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+
