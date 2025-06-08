@@ -162,7 +162,56 @@ echo
 cd # leva pra casa
 cd ~ #direto pra home
 cd $HOME #usa variavel de ambiente
+cd /home/volt #diretório home do usuário volt
 
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 1.7: Tente listar o conteúdo do diretório `/root` (diretório do superusuário) executando o comando com privilégios de superusuário. ==="
+echo "Respostas:"
+echo
+sudo ls -l /root #usando sudo para listar o diretório root
+sudo -i #abre um shell como root, onde você pode executar comandos como superusuário
+sudo su - #alternativa para entrar como root
+su - #se você já é root, pode usar su para trocar de usuário   
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 1.8: Faça uma cópia do arquivo `/etc/hosts` para o seu diretório home, renomeando o arquivo copiado para `hosts_backup`. ==="
+echo "Respostas:"
+echo
+cp /etc/hosts ~/hosts_backup #copia o arquivo hosts para o diretório home com novo nome
+cp -v /etc/hosts ~/hosts_backup #com opção -v para mostrar o que foi copiado
+cp -i /etc/hosts ~/hosts_backup #com opção -i para perguntar antes de sobrescrever
+cp -u /etc/hosts ~/hosts_backup #com opção -u para copiar apenas se o arquivo de origem for mais recente que o de destino
+cp -r /etc/hosts ~/hosts_backup #se fosse um diretório, usaria -r para copiar recursivamente
+cp -a /etc/hosts ~/hosts_backup #opção -a para preservar atributos do arquivo original  
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+#### 2. Mais Comandos (mkdir, cp, mv, touch)
+echo "=== Exercício 2.1: No seu diretório home, crie um diretório chamado **projeto**. ==="
+echo "Respostas:"
+echo
+mkdir ~/projeto #cria o diretório projeto no home
+mkdir -v ~/projeto #com opção -v para mostrar o que foi criado
+mkdir -m 755 ~/projeto #cria o diretório com permissões específicas (755)
+cho "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 2.2: Dentro do diretório **projeto**, crie um arquivo de texto vazio chamado **README.txt**. ==="
+echo "Respostas:"
+echo
+touch ~/projeto/README.txt #cria o arquivo README.txt vazio
+touch -v ~/projeto/README.txt #com opção -v para mostrar o que foi criado
 
 
 
