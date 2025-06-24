@@ -202,7 +202,7 @@ echo
 mkdir ~/projeto #cria o diretório projeto no home
 mkdir -v ~/projeto #com opção -v para mostrar o que foi criado
 mkdir -m 755 ~/projeto #cria o diretório com permissões específicas (755)
-cho "=========================================================="
+echo "=========================================================="
 echo "=========================================================="
 echo "=========================================================="
 echo
@@ -211,7 +211,224 @@ echo "=== Exercício 2.2: Dentro do diretório **projeto**, crie um arquivo de t
 echo "Respostas:"
 echo
 touch ~/projeto/README.txt #cria o arquivo README.txt vazio
-touch -v ~/projeto/README.txt #com opção -v para mostrar o que foi criado
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 2.3:Ainda no diretório **projeto**, crie um subdiretório chamado **docs**. ==="
+echo "Respostas:"
+echo
+mkdir docs
+mkdir ~/projeto/docs
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 2.4: Mova o arquivo **README.txt** para dentro do diretório **docs**. ==="
+echo "Respostas:"
+echo
+mv ~/projeto/README.txt ~/projeto/docs/.
+mv -v ~/projeto/README.txt ~/projeto/docs/.
+mv -i ~/projeto/README.txt ~/projeto/docs/. #com opção -i para perguntar antes de sobrescrever
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 2.5: No diretório **projeto**, crie um segundo arquivo vazio chamado **todo.txt**. Em seguida, renomeie esse arquivo para **tasks.txt**. ==="
+echo "Respostas:"
+echo
+touch todo.txt;mv todo.txt tasks.txt #cria todo.txt e renomeia para tasks.txt
+mv -v todo.txt tasks.txt #com opção -v para mostrar o que foi renomeado
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 2.6: Faça uma cópia do diretório **projeto** (e todo o seu conteúdo) para um novo diretório chamado **projeto_backup**, localizado em seu diretório home. ==="
+echo "Respostas:"
+echo
+cp -r ~/projeto ~/projeto_backup #copia o diretório projeto e todo o seu conteúdo
+cp -av ~/projeto ~/projeto_backup #com opção -a para preservar atributos e -v para mostrar o que foi copiado
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+#### 3. Editor Vim
+echo "=== Exercício 3.1: Abra o editor **vim** para criar um novo arquivo de texto chamado `notas.txt` no seu diretório home. No modo de inserção do editor, escreva algumas linhas de texto de sua escolha. Em seguida, salve o arquivo e saia do editor. ==="
+echo "Respostas:"
+echo
+vim ~/notas.txt #abre o vim para criar notas.txt
+# No modo de inserção, escreva algumas linhas de texto
+# Pressione `Esc` para sair do modo de inserção
+# Digite `:wq` para salvar e sair do editor
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 3.2: Usando o **vim**, edite o arquivo de configuração de hosts do sistema (`/etc/hosts`). Adicione uma nova linha ao final do arquivo (por exemplo, um host fictício para teste) e salve as alterações. *Lembre-se de que você precisará de privilégios administrativos para editar arquivos em* `/etc`. ==="
+echo "Respostas:"
+echo
+sudo vim /etc/hosts #abre o vim com privilégios de superusuário
+# No modo de inserção, adicione uma nova linha, por exemplo:
+# `127.0.0.1   meuhost.local`
+# Pressione `Esc` para sair do modo de inserção
+# Digite `:wq` para salvar e sair do editor
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 3.3: Abra com o **vim** um arquivo de log extenso, como `/var/log/messages` (ou outro log disponível em seu sistema). Dentro do editor, localize a primeira ocorrência da palavra 'error' no arquivo utilizando a função de busca do **vim**. ==="
+echo "Respostas:"
+echo
+sudo vim /var/log/messages #abre o vim com privilégios de superusuário
+# No modo de comando, digite `/error` e pressione `Enter` para buscar a palavra 'error'
+# Pressione `n` para ir para a próxima ocorrência ou `N` para a ocorrência anterior
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 3.4: Crie um arquivo de script chamado `meu_script.sh` no seu diretório home. Edite esse arquivo com o **vim** e escreva um pequeno script em shell que exiba a mensagem 'Olá, Mundo!' na tela. Inclua no início do arquivo a linha de *shebang* apropriada (indicando o interpretador Bash). Salve o arquivo e saia do editor. Em seguida, torne o script executável e execute-o no terminal para verificar se funcionou corretamente. ==="
+echo "Respostas:"
+echo
+vim ~/meu_script.sh #abre o vim para criar meu_script.sh
+# No modo de inserção, escreva o seguinte:
+# #!/bin/bash
+# echo "Olá, Mundo!"
+# Pressione `Esc` para sair do modo de inserção
+# Digite `:wq` para salvar e sair do editor
+chmod +x ~/meu_script.sh #torna o script executável
+sh ~/meu_script.sh #executa o script
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+#### 4. Tipos de Arquivos (arquivos regulares, diretórios, links simbólicos, etc.)
+echo "=== Exercício 4.1: Liste o conteúdo do diretório `/bin` em formato detalhado (por exemplo, usando `ls -l`) e observe os símbolos no início de cada linha listada. Identifique quais itens são arquivos comuns (regulares), quais são diretórios e quais são links simbólicos com base nesses símbolos da listagem. ==="
+echo "Respostas:"
+echo
+ls -l /bin #lista o conteúdo do diretório /bin em formato detalhado
+# Os símbolos no início de cada linha indicam:
+# - `-` para arquivos regulares
+# - `d` para diretórios
+# - `l` para links simbólicos
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 4.2: No seu diretório home, crie um link simbólico chamado `ultimos_logs` que aponte para o arquivo de log do sistema `/var/log/messages`. Após criar o link, verifique se ele funciona exibindo (no terminal) o conteúdo do arquivo de log através do link simbólico que você criou. ==="
+echo "Respostas:"
+echo
+ln -s /var/log/messages ~/ultimos_logs #cria um link simbólico chamado ultimos_logs
+tail -100 ~/ultimos_logs #exibe o conteúdo do arquivo de log através do link simbólico
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+
+echo "=== Exercício 4.3: Verifique se o arquivo executável `/usr/bin/vi` é um arquivo real ou um link simbólico para outro programa. Caso seja um link, identifique para qual arquivo ou caminho ele aponta. ==="
+echo "Respostas:"
+echo
+if [ -L /usr/bin/vi ]; then echo "/usr/bin/vi é um link simbólico que aponta para: $(readlink /usr/bin/vi)"; else echo "/usr/bin/vi é um arquivo real."; fi
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+
+echo "=== Exercício 4.4: No seu diretório home, crie um arquivo vazio chamado `segredo.txt`. Em seguida, altere as permissões desse arquivo de forma que **apenas** você (o dono do arquivo) tenha permissão de leitura e escrita, removendo todas as permissões para outros usuários. Liste o arquivo antes e depois da modificação para confirmar que as permissões foram ajustadas corretamente. ==="
+echo "Respostas:"
+echo
+touch ~/segredo.txt #cria o arquivo segredo.txt vazio
+ls -l ~/segredo.txt #lista o arquivo antes da modificação
+chmod 600 ~/segredo.txt #altera as permissões para que apenas o dono tenha leitura e escrita
+ls -l ~/segredo.txt #lista o arquivo após a modificação para confirmar as permissões
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+#### 5. Filtros (grep, sort, wc, cut, head, tail
+echo "=== Exercício 5.1: No arquivo `/etc/passwd`, encontre todas as linhas que contêm o texto `/bin/bash` (indicando os usuários cujo shell padrão é o Bash). ==="
+echo "Respostas:"
+echo
+grep '/bin/bash' /etc/passwd #busca por linhas que contêm /bin/bash
+cat /etc/passwd | grep /bin/bash #alternativa usando pipe
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 5.2: Calcule o tamanho do arquivo `/etc/passwd` em termos de número de **linhas**, **palavras** e **caracteres**, usando um único comando. ==="
+echo "Respostas:"
+echo
+wc /etc/passwd #mostra o número de linhas, palavras e caracteres do arquivo
+wc -l /etc/passwd #apenas o número de linhas
+wc -w /etc/passwd #apenas o número de palavras
+wc -c /etc/passwd #apenas o número de caracteres
+wc -l -w -c /etc/passwd #especificando a ordem de exibição
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 5.3: Extraia apenas o nome de usuário (primeiro campo) de cada linha do arquivo `/etc/passwd`, exibindo somente a lista de nomes de usuários do sistema. ==="
+echo "Respostas:"
+echo
+cut -d: -f1 /etc/passwd #extrai o primeiro campo (nome de usuário) usando ':' como delimitador
+cut -d: -f1 /etc/passwd | sort #ordena a lista de nomes de usuários
+cut -d: -f1 /etc/passwd | sort | uniq #remove duplicatas
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 5.4: Exiba as primeiras 10 linhas do arquivo `/etc/services` para ver os primeiros serviços listados nesse arquivo. ==="
+echo "Respostas:"
+echo
+grep -v '^#' /etc/services | head -n 10 #exclui linhas em branco e comentários, mostrando as primeiras 10 linhas
+grep -v '^#' /etc/services | grep -v '^$' | head -n 10 #exclui linhas em branco e comentários, mostrando as primeiras 10 linhas
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 5.5: Exiba as últimas 10 linhas do arquivo `/etc/services` para ver os últimos serviços listados. ==="
+echo "Respostas:"
+echo
+grep -v '^#' /etc/services | tail -10 #exclui linhas em branco e comentários, mostrando as últimas 10 linhas
+grep -v '^#' /etc/services | grep -v '^$' | tail -n 10 #exclui linhas em branco e comentários, mostrando as últimas 10 linhas
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+echo "=== Exercício 5.6: Imagine que você possui um arquivo de texto com uma lista de nomes em ordem aleatória. Crie um arquivo chamado `nomes.txt` contendo pelo menos 5 nomes fora de ordem (um em cada linha). Em seguida, use um comando para ordenar alfabeticamente os nomes desse arquivo e mostrar o resultado ordenado no terminal. ==="
+echo "Respostas:"
+echo
+echo -e "Carlos\nAna\nBruno\nEduardo\nDiana" > ~/nomes.txt #cria o arquivo nomes.txt com 5 nomes fora de ordem
+sort ~/nomes.txt #ordena alfabeticamente os nomes do arquivo
+sort -u ~/nomes.txt #ordena e remove duplicatas, se houver
+sort -r ~/nomes.txt #ordena em ordem reversa
+echo "=========================================================="
+echo "=========================================================="
+echo "=========================================================="
+echo
+echo
+#### 6. Redirecionamentos (>, >>, <, |)
+echo "=== Exercício 6.1: Liste o conteúdo do diretório `/usr/bin` e **redirecione** a saída desse comando para um arquivo chamado `bin_files.txt`. ==="
+echo "Respostas:"
+
+
 
 
 
